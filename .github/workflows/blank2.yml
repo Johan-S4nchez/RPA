@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.2'  # Especifica la versión de Python que necesitas
+          python-version: '3.13'  # Especifica la versión de Python que necesitas
 
       - name: Instalar dependencias
         run: |
