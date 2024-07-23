@@ -1,4 +1,4 @@
-name: Deploy Automation
+name: Deploy Bot Automation
 
 on:
   push:
@@ -21,10 +21,10 @@ jobs:
         with:
           python-version: '3.x'  # Especifica la versión de Python que necesitas
 
-      - name: Install requests module
+      - name: Instalar requests module
         run: python -m pip install requests  # Instala el módulo 'requests'
 
-      - name: Ejecutar script Python
+      - name: Ejecutar script Python para despliegue de bot
         run: |
           python - <<EOF
           import requests
@@ -33,15 +33,41 @@ jobs:
           url = "https://community.cloud.automationanywhere.digital/v3/automations/deploy"
 
           payload = json.dumps({
-            "fileId": 13252303,
-            "automationName": "Prueba_API",
+            "fileId": 13323077,
+            "automationName": "Prueba_Bot_API_01",
             "runAsUserIds": [
               639618
-            ]
+            ],
+            "botInput": {
+              "sInputFirstName": {
+                "type": "STRING",
+                "string": "Johan"
+              },
+              "sInputCompanyname": {
+                "type": "STRING",
+                "string": "MONEX"
+              },
+              "sInputEmail": {
+                "type": "STRING",
+                "string": "johan@monex.com"
+              },
+              "sInputPhoneNumber": {
+                "type": "STRING",
+                "string": "556984125"
+              },
+              "sInputUsername": {
+                "type": "STRING",
+                "string": "testapimonex2"
+              },
+              "sInputPassword": {
+                "type": "STRING",
+                "string": "contra1234"
+              }
+            }
           })
 
           headers = {
-            'X-Authorization': 'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI2Mzk2MTgiLCJjbGllbnRUeXBlIjoiV0VCIiwidGVuYW50VXVpZCI6IjRiNzQxZjQ5LTJkMmItNGE3Yy05ZmM0LThlNjMwZWIyMTYxMyIsIm11bHRpcGxlTG9naW4iOmZhbHNlLCJpYXQiOjE3MjE2OTg3NjMsImV4cCI6MTcyMTY5OTk2MywiaXNzIjoiQXV0b21hdGlvbkFueXdoZXJlIiwibmFub1RpbWUiOjE1NTAyOTE5NTgwMTc1MTh9.R2Tl7YK1kXE7RjTO0E8rMCn_N10xg01orUCqYJMfbuOnbe3rpt6Yi3XLIZFedH3oU9BBoOuoIkezq26cMXf0szb8yJ5RYCzA9_4Kfu_Z1xWhzZQS0Nx4zup_u0NbTWRhd4nKdiqLggU26HfGiiFXIG9-DTnOyovdSxSJHeXX95nq2WiT3XHBI3sdliCqs0IBaTQndvUTNSkda67QerAOFHxRnDFb4niO5_oQQX4zuSYhzU_HPCsAoPLbsDjpqPnsxW7JAH_X4gFlA8MX_wpjJp-iC2MTrUS0RgdZrMNuwpkyq8OFbQ1lMNYEeGWnaIOs54PoAzpMsW1ySok24Uk79A',
+            'X-Authorization': 'eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI2Mzk2MTgiLCJjbGllbnRUeXBlIjoiV0VCIiwidGVuYW50VXVpZCI6IjRiNzQxZjQ5LTJkMmItNGE3Yy05ZmM0LThlNjMwZWIyMTYxMyIsIm11bHRpcGxlTG9naW4iOmZhbHNlLCJpYXQiOjE3MjE3MDI2MDIsImV4cCI6MTcyMTcwMzgwMiwiaXNzIjoiQXV0b21hdGlvbkFueXdoZXJlIiwibmFub1RpbWUiOjE1NTQxMzA2MzQ3NTEwMjB9.GCuy_O2_jkopnui_BjXdtCv6YeqFUERYd5BIOlM5eC-sVnjfRoberlQ0jCM9qPTjGwnVYGdlD9KSdmbY2Uct7IvYowccXzOQyCq03Mc_v14t5e7Oz4YVx3udFJdf7Ul1iFuBb1VIOpOwftmn8qyWW4coshJ0NU-hoa4GimPy5N1s93x8q_zisZWoFY7e3T4AJjt3j-8utDuSkyRV4v1zWm8LZ__wUgXWsUrt1BD9egN5U1ksF27fViUNYVrR7Gbv2S7ssGYn9yfdIsp7UzwKCFCKQDzF41G1JeocFH7NOx5T3tF-qN9RjEPsDHQV2VcLwp_Ahf4TjA1HBn1Yba6Vnw',
             'Content-Type': 'application/json'
           }
 
