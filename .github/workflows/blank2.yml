@@ -1,0 +1,30 @@
+name: Python Script Execution
+
+on:
+  push:
+    branches:
+      - main  # Aquí puedes definir la rama donde quieres que se ejecute el workflow
+  pull_request:
+    branches:
+      - main  # También puedes definir otras condiciones de disparo, como pull requests
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Puedes elegir el entorno según tus necesidades
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Especifica la versión de Python que necesitas
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Si tienes un archivo requirements.txt
+
+      - name: Ejecutar script Python desde la raíz
+        run: python ${{ github.workspace }}/python.py
