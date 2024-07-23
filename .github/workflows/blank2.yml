@@ -41,7 +41,7 @@ jobs:
             "botInput": {
               "sInputFirstName": {
                 "type": "STRING",
-                "string": "Johan"
+                "string": "Carlos"
               },
               "sInputCompanyname": {
                 "type": "STRING",
@@ -49,7 +49,7 @@ jobs:
               },
               "sInputEmail": {
                 "type": "STRING",
-                "string": "johan@monex.com"
+                "string": "carlos@monex.com"
               },
               "sInputPhoneNumber": {
                 "type": "STRING",
