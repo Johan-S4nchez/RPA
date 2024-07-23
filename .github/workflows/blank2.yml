@@ -57,7 +57,7 @@ jobs:
               },
               "sInputUsername": {
                 "type": "STRING",
-                "string": "testapimonex2"
+                "string": "testapimonex3"
               },
               "sInputPassword": {
                 "type": "STRING",
